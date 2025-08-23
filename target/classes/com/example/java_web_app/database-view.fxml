@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
+      fx:controller="com.example.java_web_app.DatabaseController"
+      stylesheets="@styles.css"
+      styleClass="root">
+   <children>
+      <Label text="University Database Management System" styleClass="header-label" alignment="CENTER">
+         <VBox.margin>
+            <Insets top="20.0" bottom="20.0" />
+         </VBox.margin>
+      </Label>
+      
+      <TabPane VBox.vgrow="ALWAYS" styleClass="tab-pane">
+         <tabs>
+            <!-- Insert Data Tab -->
+            <Tab text="Insert Data" closable="false">
+               <content>
+                  <ScrollPane fitToWidth="true" vbarPolicy="AS_NEEDED" hbarPolicy="AS_NEEDED" styleClass="scroll-pane">
+                     <VBox spacing="20" styleClass="content-vbox">
+                        <Label text="Insert Data into Tables" styleClass="section-header" />
+                        
+                                                                     <!-- Course Insertion -->
+                        <TitledPane text="Insert Course" expanded="true" styleClass="titled-pane">
+                           <content>
+                              <GridPane hgap="10" vgap="10" styleClass="form-grid">
+                              <columnConstraints>
+                                 <ColumnConstraints hgrow="NEVER" minWidth="100" prefWidth="150" />
+                                 <ColumnConstraints hgrow="SOMETIMES" minWidth="200" prefWidth="300" />
+                              </columnConstraints>
+                              
+                              <Label text="Course ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="form-label" />
+                              <TextField fx:id="courseIdField" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="text-field" />
+                              
+                              <Label text="Course Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="form-label" />
+                              <TextField fx:id="courseNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="text-field" />
+                              
+                              <Label text="Description:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="form-label" />
+                              <TextArea fx:id="courseDescField" prefRowCount="3" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="text-area" />
+                              
+                              <Label text="Fee:" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="form-label" />
+                              <TextField fx:id="courseFeeField" GridPane.columnIndex="1" GridPane.rowIndex="3" styleClass="text-field" />
+                              
+                              <Button text="Insert Course" onAction="#insertCourse" GridPane.columnIndex="1" GridPane.rowIndex="4" styleClass="button insert-button" />
+                           </GridPane>
+                        </content>
+                                          </TitledPane>
+                     
+                     <!-- Spacer for better scrolling -->
+                     <Region minHeight="20" styleClass="spacer-region" />
+                     
+                     <!-- Student Insertion -->
+                        <TitledPane text="Insert Student" expanded="true" styleClass="titled-pane">
+                           <content>
+                              <GridPane hgap="10" vgap="10" styleClass="form-grid">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="NEVER" minWidth="100" prefWidth="150" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="200" prefWidth="300" />
+                                 </columnConstraints>
+                                 
+                                 <Label text="Student ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="form-label" />
+                                 <TextField fx:id="studentIdField" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="text-field" />
+                                 
+                                 <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="form-label" />
+                                 <TextField fx:id="studentNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="text-field" />
+                                 
+                                 <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="form-label" />
+                                 <TextArea fx:id="studentAddressField" prefRowCount="2" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="text-area" />
+                                 
+                                 <Label text="Date of Birth:" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="form-label" />
+                                 <TextField fx:id="studentDobField" promptText="YYYY-MM-DD" GridPane.columnIndex="1" GridPane.rowIndex="3" styleClass="text-field" />
+                                 
+                                 <Label text="NIC:" GridPane.columnIndex="0" GridPane.rowIndex="4" styleClass="form-label" />
+                                 <TextField fx:id="studentNicField" GridPane.columnIndex="1" GridPane.rowIndex="4" styleClass="text-field" />
+                                 
+                                 <Label text="Course ID:" GridPane.columnIndex="0" GridPane.rowIndex="5" styleClass="form-label" />
+                                 <TextField fx:id="studentCourseIdField" GridPane.columnIndex="1" GridPane.rowIndex="5" styleClass="text-field" />
+                                 
+                                 <Button text="Insert Student" onAction="#insertStudent" GridPane.columnIndex="1" GridPane.rowIndex="6" styleClass="button insert-button" />
+                           </GridPane>
+                        </content>
+                                          </TitledPane>
+                     
+                     <!-- Spacer for better scrolling -->
+                     <Region minHeight="20" styleClass="spacer-region" />
+                     
+                     <!-- Module Insertion -->
+                        <TitledPane text="Insert Module" expanded="true" styleClass="titled-pane">
+                           <content>
+                              <GridPane hgap="10" vgap="10" styleClass="form-grid">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="NEVER" minWidth="100" prefWidth="150" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="200" prefWidth="300" />
+                                 </columnConstraints>
+                                 
+                                 <Label text="Module Code:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="form-label" />
+                                 <TextField fx:id="moduleCodeField" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="text-field" />
+                                 
+                                 <Label text="Module Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="form-label" />
+                                 <TextField fx:id="moduleNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="text-field" />
+                                 
+                                 <Label text="Description:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="form-label" />
+                                 <TextArea fx:id="moduleDescField" prefRowCount="2" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="text-area" />
+                                 
+                                 <Label text="Credits:" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="form-label" />
+                                 <TextField fx:id="moduleCreditsField" GridPane.columnIndex="1" GridPane.rowIndex="3" styleClass="text-field" />
+                                 
+                                 <Button text="Insert Module" onAction="#insertModule" GridPane.columnIndex="1" GridPane.rowIndex="4" styleClass="button insert-button" />
+                           </GridPane>
+                        </content>
+                     </TitledPane>
+                     
+                                             <!-- Course Module Insertion -->
+                        <TitledPane text="Insert Course Module" expanded="true" styleClass="titled-pane">
+                           <content>
+                              <GridPane hgap="10" vgap="10" styleClass="form-grid">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="NEVER" minWidth="100" prefWidth="150" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="200" prefWidth="300" />
+                                 </columnConstraints>
+                                 
+                                 <Label text="Course ID:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="form-label" />
+                                 <TextField fx:id="cmCourseIdField" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="text-field" />
+                                 
+                                 <Label text="Module Code:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="form-label" />
+                                 <TextField fx:id="cmModuleCodeField" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="text-field" />
+                                 
+                                 <Label text="Academic Year:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="form-label" />
+                                 <TextField fx:id="cmYearField" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="text-field" />
+                                 
+                                 <Label text="Semester:" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="form-label" />
+                                 <TextField fx:id="cmSemesterField" GridPane.columnIndex="1" GridPane.rowIndex="3" styleClass="text-field" />
+                                 
+                                 <Button text="Insert Course Module" onAction="#insertCourseModule" GridPane.columnIndex="1" GridPane.rowIndex="4" styleClass="button insert-button" />
+                           </GridPane>
+                        </content>
+                     </TitledPane>
+                     
+                     <!-- Spacer for better scrolling -->
+                     <Region minHeight="20" styleClass="spacer-region" />
+                     
+                     <!-- Bottom padding for comfortable scrolling -->
+                     <Region minHeight="40" styleClass="bottom-spacer" />
+                  </VBox>
+                  </ScrollPane>
+               </content>
+            </Tab>
+            
+            <!-- Update Data Tab -->
+            <Tab text="Update Data" closable="false">
+               <content>
+                  <ScrollPane fitToWidth="true" vbarPolicy="AS_NEEDED" hbarPolicy="AS_NEEDED" styleClass="scroll-pane">
+                     <VBox spacing="20" styleClass="content-vbox">
+                        <Label text="Update Student Information" styleClass="section-header" />
+                        
+                        <GridPane hgap="10" vgap="10" styleClass="form-grid">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="NEVER" minWidth="100" prefWidth="150" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="200" prefWidth="300" />
+                           </columnConstraints>
+                           
+                           <Label text="Student Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="form-label" />
+                           <TextField fx:id="updateStudentNameField" promptText="Enter student name to update" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="text-field" />
+                           
+                           <Label text="New Address:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="form-label" />
+                           <TextArea fx:id="updateAddressField" prefRowCount="3" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="text-area" />
+                           
+                           <Button text="Update Student Address" onAction="#updateStudentAddress" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="button update-button" />
+                        </GridPane>
+                     </VBox>
+                  </ScrollPane>
+               </content>
+            </Tab>
+            
+            <!-- Delete Data Tab -->
+            <Tab text="Delete Data" closable="false">
+               <content>
+                  <ScrollPane fitToWidth="true" vbarPolicy="AS_NEEDED" hbarPolicy="AS_NEEDED" styleClass="scroll-pane">
+                     <VBox spacing="20" styleClass="content-vbox">
+                        <Label text="Delete Module" styleClass="section-header" />
+                        
+                        <GridPane hgap="10" vgap="10" styleClass="form-grid">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="NEVER" minWidth="100" prefWidth="150" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="200" prefWidth="300" />
+                           </columnConstraints>
+                           
+                           <Label text="Module Name:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="form-label" />
+                           <TextField fx:id="deleteModuleNameField" promptText="Enter module name to delete" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="text-field" />
+                           
+                           <Button text="Delete Module" onAction="#deleteModule" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="button delete-button" />
+                        </GridPane>
+                     </VBox>
+                  </ScrollPane>
+               </content>
+            </Tab>
+            
+            <!-- View Data Tab -->
+            <Tab text="View Data" closable="false">
+               <content>
+                  <ScrollPane fitToWidth="true" vbarPolicy="AS_NEEDED" hbarPolicy="AS_NEEDED" styleClass="scroll-pane">
+                     <VBox spacing="20" styleClass="content-vbox">
+                        <Label text="View Database Records" styleClass="section-header" />
+                        
+                        <HBox spacing="20" alignment="CENTER_LEFT" styleClass="button-container">
+                           <Button text="View Courses" onAction="#viewCourses" styleClass="button view-button" />
+                           <Button text="View Students" onAction="#viewStudents" styleClass="button view-button" />
+                           <Button text="View Modules" onAction="#viewModules" styleClass="button view-button" />
+                           <Button text="View Course Modules" onAction="#viewCourseModules" styleClass="button view-button" />
+                        </HBox>
+                        
+                        <TextArea fx:id="dataDisplayArea" prefRowCount="20" editable="false" VBox.vgrow="ALWAYS" styleClass="data-display-area" />
+                     </VBox>
+                  </ScrollPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      
+      <!-- Status Bar -->
+      <HBox styleClass="status-bar" alignment="CENTER_LEFT">
+         <Label fx:id="statusLabel" text="Ready" styleClass="status-label" />
+      </HBox>
+   </children>
+</VBox> 
