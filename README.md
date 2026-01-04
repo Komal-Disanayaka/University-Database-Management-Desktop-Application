@@ -67,24 +67,6 @@ Run the `HelloApplication` class as a Java application.
 
 The application is designed to work with the following sample data:
 
-### Courses
-- IT (Information Technology) - 175000
-- SE (Software Engineering) - 185000
-- CSNE (Computer Systems And Network Engineering) - 155000
-- DS (Data Science) - 170000
-
-### Students
-- Kamal (CN18384756) - CSNE
-- Pubudu (DS18234876) - DS
-- Ann (IT18234568) - IT
-- Malith (SE19238567) - SE
-
-### Modules
-- SE3050 (User Experience Engineering) - 4 credits
-- IT1010 (Introduction to Programming) - 3 credits
-- IT2050 (Computer Networks) - 4 credits
-- IT3051 (Fundamentals of Data Mining) - 4 credits
-
 ## Lab Sheet Requirements
 
 This application fulfills all the objectives from Lab Sheet 04:
@@ -135,5 +117,6 @@ src/
 - Other UI enhancement libraries
 
 ## License
+
 
 This project is created for educational purposes as part of Lab Sheet 04. 
